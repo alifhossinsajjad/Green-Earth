@@ -1,29 +1,27 @@
-const categoryContainer = document.getElementById("categoryContainer")
+const categoryContainer = document.getElementById("categoryContainer");
 
+const platsContainer = document.getElementById("platsContainer");
 
 const loadCategory = () => {
-    fetch("https://openapi.programming-hero.com/api/categories")
+  fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
     .then((data) => {
-        console.log(data)
-        const categories = data.categories
-        showCategory(categories);
-    }).catch((err) => {
-        console.log(err)
+      console.log(data);
+      const categories = data.categories;
+      showCategory(categories);
     })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
-
 const showCategory = (categories) => {
-    categories.forEach(cat => {
-        categoryContainer.innerHTML += `
-        <li id="${cat.id}" class="hover:bg-[#CFF0DC]  cursor-pointer">${cat.category_name}</li>
-        `
-    });
-}
-
-
-// categoryContainer.addEventListener("click", (e) => {
+  categories.forEach((cat) => {
+    categoryContainer.innerHTML += `
+        <li onclick='clickCategory(${cat.id})' id="${cat.id}" class="hover:bg-[#15803D] p-3 rounded-xl hover:text-white  cursor-pointer">${cat.category_name}</li>
+        `;
+  });
+//   categoryContainer.addEventListener("click", (e) => {
 //     const allli = document.querySelectorAll("li")
 //     allli.forEach((li) => {
 //         li.classList.remove("hover:bg-[#CFF0DC]")
@@ -33,13 +31,54 @@ const showCategory = (categories) => {
 //         lo
 //     }
 // })
+};
+
+const clickCategory = (id) => {
+  console.log("ok", id);
+  const load = loadPlantsByCategory(id);
+  console.log("paichi", load);
+};
 
 
 
+const loadPlantsByCategory = (id) => {
+  console.log(id);
+  const url = id
+    ? `https://openapi.programming-hero.com/api/category/${id}`
+    : `https://openapi.programming-hero.com/api/plants`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const plant = data.plants;
+      showPlantsByCategory(plant);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
+const showPlantsByCategory = (plant) => {
+  console.log(plant);
+  platsContainer.innerHTML = " ";
+  plant.forEach((plants) => {
+    platsContainer.innerHTML += `
+    
+    <div class="card bg-base-100 shadow-sm ">
+     <figure class = "lg:h-80 h-40  " >
+     <div><img class= "rounded-xl py-5" src = "${plants.image}"</div>
+    </figure>
+  <div class="card-body">
+    <h2 class="card-title">${plants.category}</h2>
+    <p>${plants.description}</p>
+    <div class="card-actions justify-end">
+      <button class = "w-full bg-[#15803D] text-center text-white p-3 rounded-xl">Add to card</Button>
+    </div>
+  </div>
+</div>
+    
+    `;
+  });
+};
 
-
-
-
-
+loadPlantsByCategory();
 loadCategory();
