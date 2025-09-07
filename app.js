@@ -64,7 +64,7 @@ const showPlantsByCategory = (plant) => {
     platsContainer.innerHTML += `
     
     <div class="card bg-base-100 shadow-sm ">
-     <figure class = "lg:h-80 h-40  " >
+     <figure class = "lg:h-80 h-60  " >
      <div><img class= "rounded-xl py-5" src = "${plants.image}"</div>
     </figure>
   <div class="card-body">
