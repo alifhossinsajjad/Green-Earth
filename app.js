@@ -22,14 +22,13 @@ const showCategory = (categories) => {
         `;
   });
   categoryContainer.addEventListener("click", (e) => {
-    console.log(e);
+    
     const allli = document.querySelectorAll("li");
     allli.forEach((li) => {
-      li.classList.remove("bg-[#1b8b48]");
+      li.classList.remove("bg-[#1b8b48]","text-white");
     });
     if (e.target.localName === "li") {
-      e.target.classList.add("bg-[#1b8b48]");
-      console.log(classList);
+      e.target.classList.add("bg-[#1b8b48]", "text-white");
       loadPlantsByCategory(e.target.id);
     }
   });
