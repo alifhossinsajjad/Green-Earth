@@ -104,7 +104,7 @@ const loadPlantsByCategory = (id) => {
     });
 };
 
-const addtocart = (price, name, image) => {
+const addtocart = (price, name) => {
   const rightCartContainer = document.getElementById("rightCartContainer");
 
   const rightBox = document.createElement("div");
