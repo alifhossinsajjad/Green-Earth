@@ -71,55 +71,86 @@
             </div>
         </section>
 
-        <!-- card section -->
+
+
+        <!-- load spinner -->
         <section class="bg-[#f0fdf4] pt-20">
-            <section class="max-w-11/12 mx-auto grid grid-cols-12 gap-4 ">
-            <aside class="grid col-span-2  hidden md:block">
-                <h1 class="text-2xl font-bold mb-2">Categories</h1>
-                
-                
-
-                <ul id="categoryContainer" class=" text-lg font-semibold p-5  ">
-                    
-                </ul>
-
-            </aside>
-
-            <section class=" grid lg:col-span-8  col-span-12">
-                <div id="plantsContainer" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 ">
-            </div>
+            <section id="spinner" class="flex justify-center items-center py-10 hidden">
+                <span class="loading loading-dots loading-xl"></span>
             </section>
 
-            <aside class=" col-span-2">
+            <!-- card section -->
+            <section class="max-w-11/12 mx-auto grid grid-cols-12 gap-4 ">
+                <aside class="grid col-span-2  hidden md:block">
+                    <h1 class="text-2xl font-bold mb-2">Categories</h1>
 
-            </aside>
-        </section>
 
-        <section class="bg-[#f0fdf4]">
-            <div class="max-w-7xl mx-auto mt-10">
-                <h1 class="text-center items-end text-5xl font-bold">About the Campaign</h1>
-                <div class="grid lg:grid-cols-2  max-w-7xl mx-auto p-20 gap-10 justify-center items-center">
-                    <div>
-                        <img src="./assets/about.png" alt="">
+
+                    <ul id="categoryContainer" class=" text-lg font-semibold p-5  ">
+
+                    </ul>
+
+                </aside>
+
+                <section class=" grid lg:col-span-8  col-span-12">
+                    <div id="plantsContainer" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 ">
                     </div>
-                    <div>
-                        <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change.
-                            Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you
-                            help restore forests, create habitats for wildlife, and combat global warming.</p>
+                </section>
 
-                        <ul class="list-disc ml-5 mt-6">
-                            <li>Restoration of natural habitats</li>
-                            <li>Improvement of air quality</li>
-                            <li>Support for local communities</li>
-                        </ul>
+
+                <aside class=" lg:col-span-2 col-span-full">
+                    <div class="cart-box bg-white p-5">
+            <div class="flex justify-between items-center">
+              <h2 class="font-bold">Your Cart</h2>
+            </div>
+            <div>
+              <div id="right-cart-container">
+                
+              </div>
+              <div class="space-y-3">
+                
+                  
+                <h2 class="border-t-2 border-gray-300 my-5">
+                  Total : <span id="total"> 0 </span>TK
+                </h2>
+
+                <button class="btn bg-[#15803D] text-white btn-block cart-btn">
+                  Make Purchase
+                </button>
+              </div>
+            </div>
+          </div>
+                </aside>
+            </section>
+
+
+
+            <section class="bg-[#f0fdf4]">
+                <div class="max-w-7xl mx-auto mt-10">
+                    <h1 class="text-center items-end text-5xl font-bold">About the Campaign</h1>
+                    <div class="grid lg:grid-cols-2  max-w-7xl mx-auto p-20 gap-10 justify-center items-center">
+                        <div>
+                            <img src="./assets/about.png" alt="">
+                        </div>
+                        <div>
+                            <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change.
+                                Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign,
+                                you
+                                help restore forests, create habitats for wildlife, and combat global warming.</p>
+
+                            <ul class="list-disc ml-5 mt-6">
+                                <li>Restoration of natural habitats</li>
+                                <li>Improvement of air quality</li>
+                                <li>Support for local communities</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </section>
 
 
-        
+
 
 
 
@@ -153,7 +184,8 @@
             <div class="lg:p-16 p-5">
                 <h1 class="text-center text-white text-4xl font-semibold lg:p-5 p-2">Plant a Tree Today </h1>
 
-                <div class="grid justify-center mx-auto lg:w-3xl items-center lg:gap-4 gap-2 rounded-xl lg:p-16 p-3 bg-[#15803d] ">
+                <div
+                    class="grid justify-center mx-auto lg:w-3xl items-center lg:gap-4 gap-2 rounded-xl lg:p-16 p-3 bg-[#15803d] ">
                     <input type="text" placeholder="Your Name" class="input lg:w-2xl w-full" />
                     <input type="text" placeholder="Your Email Address" class="input lg:w-2xl w-full" />
                     <input type="text" class="input lg:w-2xl w-full" placeholder="Number of Trees" list="browsers" />
