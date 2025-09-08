@@ -1,12 +1,12 @@
 const categoryContainer = document.getElementById("categoryContainer");
 
-const platsContainer = document.getElementById("platsContainer");
+const plantsContainer = document.getElementById("plantsContainer");
 
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      console.log(data.categories);
       const categories = data.categories;
       showCategory(categories);
     })
@@ -18,19 +18,21 @@ const loadCategory = () => {
 const showCategory = (categories) => {
   categories.forEach((cat) => {
     categoryContainer.innerHTML += `
-        <li onclick='clickCategory(${cat.id})' id="${cat.id}" class="hover:bg-[#15803D] p-3 rounded-xl hover:text-white  cursor-pointer">${cat.category_name}</li>
+        <li onclick='clickCategory(${cat.id})' id="${cat.id}" class="hover:bg-[#1b8b48] hover:text-white cursor-pointer p-3 rounded-xl ">${cat.category_name}</li>
         `;
   });
-//   categoryContainer.addEventListener("click", (e) => {
-//     const allli = document.querySelectorAll("li")
-//     allli.forEach((li) => {
-//         li.classList.remove("hover:bg-[#CFF0DC]")
-//     })
-//     if(e.target.category_name === "li"){
-//         e.target.classList.add("hover:bg-[#CFF0DC]");
-//         lo
-//     }
-// })
+  categoryContainer.addEventListener("click", (e) => {
+    console.log(e);
+    const allli = document.querySelectorAll("li");
+    allli.forEach((li) => {
+      li.classList.remove("bg-[#1b8b48]");
+    });
+    if (e.target.localName === "li") {
+      e.target.classList.add("bg-[#1b8b48]");
+      console.log(classList);
+      loadPlantsByCategory(e.target.id);
+    }
+  });
 };
 
 const clickCategory = (id) => {
@@ -38,8 +40,6 @@ const clickCategory = (id) => {
   const load = loadPlantsByCategory(id);
   console.log("paichi", load);
 };
-
-
 
 const loadPlantsByCategory = (id) => {
   console.log(id);
@@ -59,9 +59,9 @@ const loadPlantsByCategory = (id) => {
 
 const showPlantsByCategory = (plant) => {
   console.log(plant);
-  platsContainer.innerHTML = " ";
+  plantsContainer.innerHTML = " ";
   plant.forEach((plants) => {
-    platsContainer.innerHTML += `
+    plantsContainer.innerHTML += `
     
     <div class="card bg-base-100 shadow-sm ">
      <figure class = "lg:h-80 h-60  " >
