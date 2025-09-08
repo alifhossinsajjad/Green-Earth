@@ -15,6 +15,10 @@
     <!-- Tailwind-css -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 
@@ -81,7 +85,7 @@
 
             <!-- card section -->
             <section class="max-w-11/12 mx-auto grid grid-cols-12 gap-4 ">
-                <aside class="grid col-span-2  hidden md:block">
+                <aside class="grid col-span-2  hidden lg:block">
                     <h1 class="text-2xl font-bold mb-2">Categories</h1>
 
 
@@ -101,22 +105,17 @@
                 <aside class=" lg:col-span-2 col-span-full">
                     <div class="cart-box bg-white p-5">
                         <div class="flex justify-between items-center">
-                            <h2 class="font-bold">Your Cart</h2>
+                            <h2 class="text-xl font-bold">Your Cart</h2>
                         </div>
                         <div>
-                            <div id="right-cart-container">
+                            <div id="rightCartContainer">
 
                             </div>
                             <div class="space-y-3">
-
-
-                                <h2 class="border-t-2 border-gray-300 my-5">
-                                    Total : <span id="total"> 0 </span>TK
+                                <h2 class=" flex justify-end items-center lg:text-xl
+                                text-lg font-bold border-gray-300 mt-6">Total : <i
+                                class="fa-solid fa-bangladeshi-taka-sign"></i> <span id="total">0</span> 
                                 </h2>
-
-                                <button class="btn bg-[#15803D] text-white btn-block cart-btn">
-                                    Make Purchase
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -132,7 +131,7 @@
                         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
                     <div id="details-container">
-                        
+
                     </div>
                 </div>
             </dialog>
@@ -143,7 +142,7 @@
                     <h1 class="text-center items-end text-5xl font-bold">About the Campaign</h1>
                     <div class="grid lg:grid-cols-2  max-w-7xl mx-auto p-20 gap-10 justify-center items-center">
                         <div>
-                            <img src="./assets/about.png" alt="">
+                            <img class="md:ml-32 lg:ml-0" src="./assets/about.png" alt="">
                         </div>
                         <div>
                             <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change.
