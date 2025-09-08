@@ -69,16 +69,16 @@ const plantsDisplayDetails = (plants) => {
   <div class="card ">
      <div>
      <div>
-     <h1 class="mb-3">${plants.name}</h1>
+     <h1 class="text-2xl font-bold mb-3">${plants.name}</h1>
      </div>
      
      <img class = "h-96 w-full rounded-xl " src = "${plants.image}"
      </div>
 
   <div class="card-body">
-    <h2>${plants.category}</h2>
-    <h2>${plants.price}</h2>
-    <p>${plants.description}</p>
+    <h2><span class="text-xl font-medium">Category : </span>${plants.category}</h2>
+    <h2><span class="text-xl font-medium">Price : </span>${plants.price}</h2>
+    <p><span class="text-xl font-medium">Description : </span> ${plants.description}</p>
   </div>
      </div>
     
