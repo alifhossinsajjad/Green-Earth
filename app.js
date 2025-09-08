@@ -1,3 +1,4 @@
+
 const categoryContainer = document.getElementById("categoryContainer");
 
 const plantsContainer = document.getElementById("plantsContainer");
@@ -35,7 +36,7 @@ const showCategory = (categories) => {
      
   categories.forEach((cat) => {
     categoryContainer.innerHTML += `
-        <li onclick='clickCategory(${cat.id})' id="${cat.id}" class="hover:bg-[#1b8b48] hover:text-white cursor-pointer p-3 rounded-xl ">${cat.category_name}</li>
+        <li onclick='clickCategory(${cat.id})' id="${cat.id}" class="hover:bg-[#1b8b48] hover:text-white cursor-pointer p-2 gap-4 space-y-3 rounded-xl ">${cat.category_name}</li>
         `;
   });
   categoryContainer.addEventListener("click", (e) => {
@@ -56,6 +57,33 @@ const clickCategory = (id) => {
   const load = loadPlantsByCategory(id);
   console.log("paichi", load);
 };
+
+
+const loadPlantsDetails = async (id) => {
+  const url = `
+  https://openapi.programming-hero.com/api/plant/${id}
+  `
+  console.log(url);
+
+  const res =await fetch(url)
+  const details = await (res.json())
+  plantsDisplayDetails(details.plants);
+}
+
+const plantsDisplayDetails = (plants) => {
+  console.log(plants)
+  
+  const detailsBox = document.getElementById("details-container")
+  detailsBox.innerHTML = `
+  
+  <h1>amar na kathal gach </h1>
+  `
+
+
+  document.getElementById("myModal").showModal()
+}
+
+
 
 const loadPlantsByCategory = (id) => {
   manageaSpinner(true)
@@ -85,7 +113,7 @@ const showPlantsByCategory = (plant) => {
      <div><img class= " " src = "${plants.image}"</div>
     </figure>
   <div class="card-body">
-    <h2 class="card-title">${plants.category}</h2>
+    <h2 onclick="loadPlantsDetails('${plants.id}')" class="card-title cursor-pointer">${plants.category}</h2>
     <p>${plants.description}</p>
     <div class="card-actions justify-end">
       <button class = "w-full bg-[#15803D] text-center text-white p-3 rounded-xl crt-btn hover:bg-[#CFF0DC] hover:text-gray-700 cursor-pointer">Add to card</Button>
